@@ -456,65 +456,73 @@
         <p style="margin-top: 1rem; font-size: 0.9rem;">Educação pública é coisa séria - e também pode ser feita com carinho</p>
     </footer>
 
-    <script>
-        // Verifica se já viu o popup nesta sessão
-        if (sessionStorage.getItem('popupStatus')) {
-            document.getElementById('popupRegistro').style.display = 'none';
-        }
+<script>
+    // DEBUG VISUAL - Mostra mensagens na tela
+    console.log('Script carregado');
+    
+    // Verifica se já viu o popup nesta sessão
+    if (sessionStorage.getItem('popupStatus')) {
+        document.getElementById('popupRegistro').style.display = 'none';
+        console.log('Popup já foi visto: ' + sessionStorage.getItem('popupStatus'));
+    }
 
-        function registrarAcesso() {
-            const nome = document.getElementById('nomeVisitante').value.trim();
-            const statusDiv = document.getElementById('registroStatus');
-            
-            if (nome === '') {
-                statusDiv.style.display = 'block';
-                statusDiv.style.background = '#e74c3c';
-                statusDiv.innerHTML = '❌ Digita teu nome rapidinho';
-                return;
-            }
-
+    function registrarAcesso() {
+        const nome = document.getElementById('nomeVisitante').value.trim();
+        const statusDiv = document.getElementById('registroStatus');
+        
+        console.log('Tentando registrar nome:', nome);
+        
+        if (nome === '') {
             statusDiv.style.display = 'block';
-            statusDiv.style.background = '#3498db';
-            statusDiv.innerHTML = '⏳ Registrando...';
-
-            // ENVIA PARA O GOOGLE APPS SCRIPT (SUA URL)
-            fetch('https://script.google.com/macros/s/AKfycbz3SM0gmsT_QDLodTPQeRJGhi7QgxWkTO8yIMHxWwKa4U6--RA_kGtJIWbAI0oZ2K43/exec', {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: 'nome=' + encodeURIComponent(nome)
-            })
-            .then(() => {
-                statusDiv.style.background = '#27ae60';
-                statusDiv.innerHTML = '✅ Valeu! Pode acessar os slides.';
-                
-                sessionStorage.setItem('popupStatus', 'registrado');
-                
-                setTimeout(() => {
-                    document.getElementById('popupRegistro').style.display = 'none';
-                }, 1500);
-            })
-            .catch((erro) => {
-                console.error('Erro:', erro);
-                // Mesmo com erro, liberamos o acesso
-                statusDiv.style.background = '#27ae60';
-                statusDiv.innerHTML = '✅ Valeu! Pode acessar.';
-                
-                sessionStorage.setItem('popupStatus', 'registrado');
-                
-                setTimeout(() => {
-                    document.getElementById('popupRegistro').style.display = 'none';
-                }, 1500);
-            });
+            statusDiv.style.background = '#e74c3c';
+            statusDiv.innerHTML = '❌ Digita teu nome rapidinho';
+            console.log('Erro: nome vazio');
+            return;
         }
 
-        function fecharPopup() {
-            document.getElementById('popupRegistro').style.display = 'none';
-            sessionStorage.setItem('popupStatus', 'ignorado');
-        }
-    </script>
+        statusDiv.style.display = 'block';
+        statusDiv.style.background = '#3498db';
+        statusDiv.innerHTML = '⏳ Enviando...';
+        console.log('Iniciando envio para:', 'https://script.google.com/macros/s/AKfycbz3SM0gmsT_QDLodTPQeRJGhi7QgxWkTO8yIMHxWwKa4U6--RA_kGtJIWbAI0oZ2K43/exec');
 
+        // ENVIA PARA O GOOGLE APPS SCRIPT
+        fetch('https://script.google.com/macros/s/AKfycbz3SM0gmsT_QDLodTPQeRJGhi7QgxWkTO8yIMHxWwKa4U6--RA_kGtJIWbAI0oZ2K43/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'nome=' + encodeURIComponent(nome)
+        })
+        .then(() => {
+            console.log('✅ Fetch completou (modo no-cors)');
+            statusDiv.style.background = '#27ae60';
+            statusDiv.innerHTML = '✅ Valeu! Nome registrado.';
+            
+            sessionStorage.setItem('popupStatus', 'registrado');
+            
+            setTimeout(() => {
+                document.getElementById('popupRegistro').style.display = 'none';
+            }, 1500);
+        })
+        .catch((erro) => {
+            console.error('❌ Erro no fetch:', erro);
+            statusDiv.style.background = '#f39c12';
+            statusDiv.innerHTML = '✅ Registro local (offline)';
+            
+            sessionStorage.setItem('popupStatus', 'registrado');
+            
+            setTimeout(() => {
+                document.getElementById('popupRegistro').style.display = 'none';
+            }, 1500);
+        });
+    }
+
+    function fecharPopup() {
+        console.log('Popup fechado manualmente');
+        document.getElementById('popupRegistro').style.display = 'none';
+        sessionStorage.setItem('popupStatus', 'ignorado');
+    }
+</script>
 </body>
 </html>
