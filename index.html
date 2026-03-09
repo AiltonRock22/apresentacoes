@@ -473,63 +473,61 @@
             document.getElementById('popupRegistro').style.display = 'none';
         }
 
-        function registrarAcesso() {
-            const nome = document.getElementById('nomeVisitante').value.trim();
-            const statusDiv = document.getElementById('registroStatus');
-            
-            if (nome === '') {
-                statusDiv.style.display = 'block';
-                statusDiv.style.background = '#e74c3c';
-                statusDiv.innerHTML = '❌ Digita seu nome rapidinho :)';
-                return;
-            }
+function registrarAcesso() {
+    const nome = document.getElementById('nomeVisitante').value.trim();
+    const statusDiv = document.getElementById('registroStatus');
+    
+    if (nome === '') {
+        statusDiv.style.display = 'block';
+        statusDiv.style.background = '#e74c3c';
+        statusDiv.innerHTML = '❌ Digita teu nome rapidinho';
+        return;
+    }
 
-            // Mostra status de envio
-            statusDiv.style.display = 'block';
-            statusDiv.style.background = '#3498db';
-            statusDiv.innerHTML = '⏳ Registrando...';
+    statusDiv.style.display = 'block';
+    statusDiv.style.background = '#3498db';
+    statusDiv.innerHTML = '⏳ Registrando...';
 
-            // =====================================================
-            // IMPORTANTE: Substitua [COLOCAR_O_NUMBER_DO_NOME_AQUI] 
-            // pelo número que você vai me mandar!
-            // =====================================================
-            const formData = new FormData();
-            formData.append('entry.2051425765', nome);
-            
-            // Envia para o Forms (sem recarregar a página)
-            fetch('https://docs.google.com/forms/d/e/1FAIpQLSfx8x8x8x8x8x8x8x8x8x8x8x8x8x8x8x8/formResponse', {
-                method: 'POST',
-                mode: 'no-cors',
-                body: formData
-            })
-            .then(() => {
-                // Mesmo com no-cors, não temos resposta, mas assumimos que deu certo
-                statusDiv.style.background = '#27ae60';
-                statusDiv.innerHTML = '✅ Obrigado! Registro confirmado.';
-                
-                // Salva na sessão
-                sessionStorage.setItem('popupStatus', 'registrado');
-                sessionStorage.setItem('nomeVisitante', nome);
-                
-                // Fecha o popup
-                setTimeout(() => {
-                    document.getElementById('popupRegistro').style.display = 'none';
-                }, 1500);
-            })
-            .catch(() => {
-                // Se der erro, mesmo assim libera (não trava o aluno)
-                statusDiv.style.background = '#f39c12';
-                statusDiv.innerHTML = '✅ Obrigado! (Registro simplificado)';
-                
-                sessionStorage.setItem('popupStatus', 'registrado');
-                
-                setTimeout(() => {
-                    document.getElementById('popupRegistro').style.display = 'none';
-                }, 1500);
-            });
-        }
+    // CRIA UM IFRAME OCULTO PARA ENVIAR O FORMULÁRIO
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.name = 'iframeRegistro';
+    document.body.appendChild(iframe);
 
-        function fecharPopup() {
+    // CRIA UM FORMULÁRIO QUE ENVIA PARA O IFRAME
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSfx8x8x8x8x8x8x8x8x8x8x8x8x8x8x8x8/formResponse';
+    form.target = 'iframeRegistro';
+    form.style.display = 'none';
+
+    // ADICIONA O CAMPO DO NOME
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'entry.2051425765';
+    input.value = nome;
+    form.appendChild(input);
+
+    document.body.appendChild(form);
+    
+    // ENVIA O FORMULÁRIO
+    form.submit();
+
+    // LIMPA TUDO DEPOIS DE ENVIAR
+    setTimeout(() => {
+        document.body.removeChild(form);
+        document.body.removeChild(iframe);
+        
+        statusDiv.style.background = '#27ae60';
+        statusDiv.innerHTML = '✅ Valeu! Pode acessar os slides.';
+        
+        sessionStorage.setItem('popupStatus', 'registrado');
+        
+        setTimeout(() => {
+            document.getElementById('popupRegistro').style.display = 'none';
+        }, 1500);
+    }, 1000);
+}        function fecharPopup() {
             document.getElementById('popupRegistro').style.display = 'none';
             sessionStorage.setItem('popupStatus', 'ignorado');
         }
