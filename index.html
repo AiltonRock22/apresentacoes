@@ -14,14 +14,14 @@
         body {
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
             background: #f7f9fa;
-            color: #1e2f3d;
+            color: #1a2b3c;
             line-height: 1.5;
         }
 
         .cabecalho {
             background: #1e3c5c;
             color: white;
-            padding: 3rem 1.5rem;
+            padding: 2.5rem 1.5rem;
             text-align: center;
             border-bottom: 5px solid #e67e22;
         }
@@ -29,13 +29,11 @@
         .cabecalho h1 {
             font-size: clamp(1.8rem, 5vw, 2.5rem);
             margin-bottom: 0.5rem;
-            font-weight: 600;
         }
 
         .cabecalho p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             opacity: 0.9;
-            font-weight: 300;
         }
 
         .container {
@@ -44,47 +42,45 @@
             padding: 2rem 1.5rem;
         }
 
-        .mensagem-boasvindas {
+        /* AVISO SIMPLES - DO JEITO QUE VOCÊ PEDIU */
+        .aviso {
             background: #e67e22;
             color: white;
-            padding: 2rem;
-            border-radius: 20px;
-            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 2.5rem;
             text-align: center;
-            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
         }
 
-        .mensagem-boasvindas h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .mensagem-boasvindas p {
+        .aviso p {
             font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 1rem;
         }
 
-        .contato-email {
-            background: white;
-            color: #1e3c5c;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
+        .aviso a {
             display: inline-block;
-            font-weight: 500;
-            margin-top: 1rem;
-            border: 2px solid #1e3c5c;
+            background: white;
+            color: #e67e22;
             text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            margin: 0.5rem 0;
+            border: 2px solid white;
         }
 
-        .contato-email:hover {
-            background: #f0f0f0;
+        .aviso a:hover {
+            background: #1e3c5c;
+            color: white;
+            border-color: white;
         }
 
-        .titulo-slides {
+        .aviso pequeno {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .titulo {
             font-size: 2rem;
             color: #1e3c5c;
             margin-bottom: 2rem;
@@ -93,64 +89,56 @@
             display: inline-block;
         }
 
-        .grade-slides {
+        .grade {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
-        .card-slide {
+        .card {
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            transition: 0.25s;
-            border: 1px solid #edf2f7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
         }
 
-        .card-slide:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(30, 60, 92, 0.15);
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
-        .card-slide img {
+        .card img {
             width: 100%;
-            height: 180px;
+            height: 170px;
             object-fit: cover;
-            background: #eee;
-            display: block;
             border-bottom: 3px solid #e67e22;
         }
 
         .card-conteudo {
             padding: 1.5rem;
+            text-align: center;
         }
 
         .card-conteudo h3 {
-            font-size: 1.3rem;
             color: #1e3c5c;
             margin-bottom: 1rem;
-            line-height: 1.4;
-            min-height: 3.5rem;
+            font-size: 1.2rem;
         }
 
-        .btn-slide {
+        .card-conteudo a {
             display: block;
             background: #1e3c5c;
             color: white;
             text-decoration: none;
-            padding: 0.9rem;
+            padding: 0.8rem;
             border-radius: 8px;
-            text-align: center;
             font-weight: 500;
-            transition: 0.2s;
-            border: 2px solid transparent;
         }
 
-        .btn-slide:hover {
+        .card-conteudo a:hover {
             background: #e67e22;
-            border-color: #1e3c5c;
         }
 
         hr {
@@ -160,385 +148,174 @@
             margin: 3rem 0;
         }
 
-        .sobre-mim {
+        /* BIO DO PROFESSOR */
+        .bio {
             background: white;
-            padding: 2.5rem;
-            border-radius: 24px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            border-left: 8px solid #e67e22;
+            padding: 2rem;
+            border-radius: 20px;
+            border-left: 6px solid #e67e22;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .sobre-mim h2 {
-            font-size: 2rem;
+        .bio h2 {
             color: #1e3c5c;
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-size: 1.8rem;
         }
 
-        .sobre-mim h2::before {
-            content: "📌";
-            font-size: 2rem;
-        }
-
-        .sobre-mim p {
-            font-size: 1.1rem;
+        .bio p {
             color: #2d3f4f;
-            margin-bottom: 1.2rem;
-            max-width: 800px;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
 
-        .contato-rodape {
+        .bio .email {
             background: #f0f7fa;
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 40px;
             display: inline-block;
-            color: #1e3c5c;
-            font-weight: 500;
             border: 1px dashed #1e3c5c;
+            margin-top: 0.5rem;
         }
 
         .rodape {
             text-align: center;
-            padding: 3rem 1.5rem;
+            padding: 2.5rem;
             background: #1a2b3c;
             color: #a0b8cc;
             margin-top: 3rem;
-        }
-
-        /* POPUP */
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-        }
-
-        .popup-conteudo {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 30px;
-            max-width: 450px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            border: 4px solid #e67e22;
-        }
-
-        .popup-conteudo h3 {
-            font-size: 1.8rem;
-            color: #1e3c5c;
-            margin-bottom: 1rem;
-        }
-
-        .popup-conteudo p {
-            font-size: 1.1rem;
-            color: #2d3f4f;
-            margin-bottom: 2rem;
-        }
-
-        .popup-input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #ddd;
-            border-radius: 50px;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            transition: 0.2s;
-        }
-
-        .popup-input:focus {
-            border-color: #e67e22;
-            outline: none;
-        }
-
-        .popup-btn {
-            background: #e67e22;
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: 0.2s;
-            border: 2px solid transparent;
-        }
-
-        .popup-btn:hover {
-            background: #1e3c5c;
-            border-color: #e67e22;
-        }
-
-        .popup-fechar {
-            margin-top: 1rem;
-            color: #999;
-            text-decoration: underline;
-            cursor: pointer;
             font-size: 0.9rem;
-        }
-
-        .popup-fechar:hover {
-            color: #e67e22;
-        }
-
-        .registro-status {
-            background: #27ae60;
-            color: white;
-            padding: 0.8rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            display: none;
         }
 
         @media (max-width: 600px) {
             .cabecalho { padding: 2rem 1rem; }
-            .mensagem-boasvindas { padding: 1.5rem; }
-            .mensagem-boasvindas h2 { font-size: 1.6rem; }
-            .grade-slides { grid-template-columns: 1fr; }
-            .sobre-mim { padding: 1.8rem; }
-            .card-conteudo h3 { min-height: auto; }
-            .popup-conteudo { padding: 1.8rem; }
+            .container { padding: 1rem; }
+            .grade { grid-template-columns: 1fr; }
+            .aviso { padding: 1.2rem; }
+            .aviso a { padding: 0.7rem 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- POPUP DE REGISTRO -->
-    <div id="popupRegistro" class="popup-overlay">
-        <div class="popup-conteudo">
-            <h3>👋 Só uma coisa rápida...</h3>
-            <p>Me ajuda a saber quem tá acessando os slides? Só coloca seu nome:</p>
-            
-            <div id="registroStatus" class="registro-status"></div>
-
-            <input type="text" id="nomeVisitante" class="popup-input" placeholder="Seu nome" maxlength="50">
-            
-            <button onclick="registrarAcesso()" class="popup-btn">📝 Registrar e acessar</button>
-            
-            <div class="popup-fechar" onclick="fecharPopup()">
-                Depois eu registro
-            </div>
-        </div>
-    </div>
-
     <header class="cabecalho">
-        <h1>📊 Slides das Aulas</h1>
+        <h1>📊 Slides de Filosofia</h1>
         <p>E. E. Felício Pereira de Araújo • Montes Claros</p>
-        <a href="mailto:ailton.mota@educacao.mg.gov.br" class="contato-email">
-            📧 ailton.mota@educacao.mg.gov.br
-        </a>
     </header>
 
     <main class="container">
-        <div class="mensagem-boasvindas">
-            <h2>📚 Material de apoio</h2>
-            <p>
-                Os slides que a gente usa em sala tão todos aqui. Fica à vontade pra acessar, baixar e usar.<br>
-                <strong>Tudo gratuito, feito por professor pra aluno.</strong>
-            </p>
+
+        <!-- AVISO SIMPLES - SÓ ISSO MESMO -->
+        <div class="aviso">
+            <p><strong>📋 Só uma coisa rápida...</strong></p>
+            <p>Se puder registrar seu nome aqui, ajuda saber quem tá acessando os slides:</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYCzrI7NUw2h7aC84W5MiXuuT8hwuNpADg4ydbTzXWCDbhEg/viewform?usp=sharing&ouid=106355154920679219225" target="_blank">
+                📝 Abrir formulário
+            </a>
+            <p style="font-size: 0.9rem; margin-top: 1rem;">É rapidinho e ajuda demais 🙏</p>
         </div>
 
-        <h2 class="titulo-slides">📽️ Apresentações</h2>
+        <h2 class="titulo">📽️ Slides das aulas</h2>
 
-        <div class="grade-slides">
-            <!-- Slide 1 -->
-            <article class="card-slide">
-                <img src="https://drive.google.com/thumbnail?id=1pzbiIsSxgjbLQN7i3NBvDG9Mpnsktv6M&sz=w600" alt="Platão" loading="lazy">
+        <div class="grade">
+
+            <article class="card">
+                <img src="https://drive.google.com/thumbnail?id=1pzbiIsSxgjbLQN7i3NBvDG9Mpnsktv6M&sz=w500" alt="Platão" loading="lazy">
                 <div class="card-conteudo">
                     <h3>Introdução a Platão 1</h3>
-                    <a href="https://docs.google.com/presentation/d/1pzbiIsSxgjbLQN7i3NBvDG9Mpnsktv6M/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                    <a href="https://docs.google.com/presentation/d/1pzbiIsSxgjbLQN7i3NBvDG9Mpnsktv6M/edit?usp=sharing" target="_blank">▶️ Ver slides</a>
                 </div>
             </article>
 
-            <!-- Slide 2 -->
-            <article class="card-slide">
-                <img src="https://drive.google.com/thumbnail?id=1-Fb_8UCJqZ8M6h0wjiI4h5_TKrR3RjrI&sz=w600" alt="Felicidade Grega" loading="lazy">
+            <article class="card">
+                <img src="https://drive.google.com/thumbnail?id=1-Fb_8UCJqZ8M6h0wjiI4h5_TKrR3RjrI&sz=w500" alt="Felicidade" loading="lazy">
                 <div class="card-conteudo">
-                    <h3>Felicidade - Sabedoria Grega antiga</h3>
-                    <a href="https://docs.google.com/presentation/d/1-Fb_8UCJqZ8M6h0wjiI4h5_TKrR3RjrI/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                    <h3>Felicidade - Sabedoria Grega</h3>
+                    <a href="https://docs.google.com/presentation/d/1-Fb_8UCJqZ8M6h0wjiI4h5_TKrR3RjrI/edit?usp=sharing" target="_blank">▶️ Ver slides</a>
                 </div>
             </article>
 
-            <!-- Slide 3 -->
-            <article class="card-slide">
-                <img src="https://drive.google.com/thumbnail?id=1q3TyvzsEsGGp6IkNuVYwn-jGVfAmbLtK&sz=w600" alt="Sócrates" loading="lazy">
+            <article class="card">
+                <img src="https://drive.google.com/thumbnail?id=1q3TyvzsEsGGp6IkNuVYwn-jGVfAmbLtK&sz=w500" alt="Sócrates" loading="lazy">
                 <div class="card-conteudo">
                     <h3>Sócrates e os sofistas</h3>
-                    <a href="https://docs.google.com/presentation/d/1q3TyvzsEsGGp6IkNuVYwn-jGVfAmbLtK/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                    <a href="https://docs.google.com/presentation/d/1q3TyvzsEsGGp6IkNuVYwn-jGVfAmbLtK/edit?usp=sharing" target="_blank">▶️ Ver slides</a>
                 </div>
             </article>
 
-            <!-- Slide 4 -->
-            <article class="card-slide">
-                <img src="https://drive.google.com/thumbnail?id=1J2eyC5nyC5vKFyrvmPMHfexP5qwdVrkhIx0zBNAWkv0&sz=w600" alt="Aristóteles" loading="lazy">
+            <article class="card">
+                <img src="https://drive.google.com/thumbnail?id=1J2eyC5nyC5vKFyrvmPMHfexP5qwdVrkhIx0zBNAWkv0&sz=w500" alt="Aristóteles" loading="lazy">
                 <div class="card-conteudo">
-                    <h3>Aristóteles - Hilemorfismo e Teleologia</h3>
-                    <a href="https://docs.google.com/presentation/d/1J2eyC5nyC5vKFyrvmPMHfexP5qwdVrkhIx0zBNAWkv0/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                    <h3>Aristóteles - Hilemorfismo</h3>
+                    <a href="https://docs.google.com/presentation/d/1J2eyC5nyC5vKFyrvmPMHfexP5qwdVrkhIx0zBNAWkv0/edit?usp=sharing" target="_blank">▶️ Ver slides</a>
                 </div>
             </article>
 
-            <!-- Slide 5 -->
-            <article class="card-slide">
-                <img src="https://drive.google.com/thumbnail?id=12nosQwtKVs_-DZjDBhBFHivNvpbQJQdI&sz=w600" alt="Pré-Socráticos" loading="lazy">
+            <article class="card">
+                <img src="https://drive.google.com/thumbnail?id=12nosQwtKVs_-DZjDBhBFHivNvpbQJQdI&sz=w500" alt="Pré-Socráticos" loading="lazy">
                 <div class="card-conteudo">
-                    <h3>História da Filosofia: Pré-Socráticos</h3>
-                    <a href="https://docs.google.com/presentation/d/12nosQwtKVs_-DZjDBhBFHivNvpbQJQdI/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                    <h3>Pré-Socráticos</h3>
+                    <a href="https://docs.google.com/presentation/d/12nosQwtKVs_-DZjDBhBFHivNvpbQJQdI/edit?usp=sharing" target="_blank">▶️ Ver slides</a>
                 </div>
             </article>
 
-            <!-- Slide 6 -->
-            <article class="card-slide">
-                <img src="https://drive.google.com/thumbnail?id=1zi5GHSlb4YTVKZMVulOGEPptgHjCQ-LA&sz=w600" alt="Ilha das Flores" loading="lazy">
+            <article class="card">
+                <img src="https://drive.google.com/thumbnail?id=1zi5GHSlb4YTVKZMVulOGEPptgHjCQ-LA&sz=w500" alt="Ilha das Flores" loading="lazy">
                 <div class="card-conteudo">
-                    <h3>Ética e moral em Ilha das Flores</h3>
-                    <a href="https://docs.google.com/presentation/d/1zi5GHSlb4YTVKZMVulOGEPptgHjCQ-LA/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                    <h3>Ética em Ilha das Flores</h3>
+                    <a href="https://docs.google.com/presentation/d/1zi5GHSlb4YTVKZMVulOGEPptgHjCQ-LA/edit?usp=sharing" target="_blank">▶️ Ver slides</a>
                 </div>
             </article>
 
-            <!-- Slide 7 -->
-            <article class="card-slide">
-                <img src="https://drive.google.com/thumbnail?id=1-0P1A9AG6U5PjT-pxkK1PD2r5wf41S-Qh0DZ3V2brJ0&sz=w600" alt="Aristóteles Básico" loading="lazy">
+            <article class="card">
+                <img src="https://drive.google.com/thumbnail?id=1-0P1A9AG6U5PjT-pxkK1PD2r5wf41S-Qh0DZ3V2brJ0&sz=w500" alt="Aristóteles Básico" loading="lazy">
                 <div class="card-conteudo">
                     <h3>Aristóteles Básico</h3>
-                    <a href="https://docs.google.com/presentation/d/1-0P1A9AG6U5PjT-pxkK1PD2r5wf41S-Qh0DZ3V2brJ0/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                    <a href="https://docs.google.com/presentation/d/1-0P1A9AG6U5PjT-pxkK1PD2r5wf41S-Qh0DZ3V2brJ0/edit?usp=sharing" target="_blank">▶️ Ver slides</a>
                 </div>
             </article>
 
-            <!-- Slide 8 -->
-            <article class="card-slide">
-                <img src="https://drive.google.com/thumbnail?id=1aRIfilgnBPA6PDxbWhI4aATPCUyiaA5B&sz=w600" alt="Conhecimento" loading="lazy">
+            <article class="card">
+                <img src="https://drive.google.com/thumbnail?id=1aRIfilgnBPA6PDxbWhI4aATPCUyiaA5B&sz=w500" alt="Conhecimento" loading="lazy">
                 <div class="card-conteudo">
                     <h3>Tipos de Conhecimento</h3>
-                    <a href="https://docs.google.com/presentation/d/1aRIfilgnBPA6PDxbWhI4aATPCUyiaA5B/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                    <a href="https://docs.google.com/presentation/d/1aRIfilgnBPA6PDxbWhI4aATPCUyiaA5B/edit?usp=sharing" target="_blank">▶️ Ver slides</a>
                 </div>
             </article>
 
-            <!-- Slide 9 -->
-            <article class="card-slide">
-                <img src="https://drive.google.com/thumbnail?id=1ws-fC0ycaRqm7Z9MbaJ08nt9Tp_Snltt&sz=w600" alt="Aristóteles prático" loading="lazy">
+            <article class="card">
+                <img src="https://drive.google.com/thumbnail?id=1ws-fC0ycaRqm7Z9MbaJ08nt9Tp_Snltt&sz=w500" alt="Aristóteles prático" loading="lazy">
                 <div class="card-conteudo">
-                    <h3>Aristóteles: Filosofia com os pés no chão</h3>
-                    <a href="https://docs.google.com/presentation/d/1ws-fC0ycaRqm7Z9MbaJ08nt9Tp_Snltt/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                    <h3>Aristóteles: pés no chão</h3>
+                    <a href="https://docs.google.com/presentation/d/1ws-fC0ycaRqm7Z9MbaJ08nt9Tp_Snltt/edit?usp=sharing" target="_blank">▶️ Ver slides</a>
                 </div>
             </article>
+
         </div>
 
         <hr>
 
-        <section class="sobre-mim">
+        <!-- BIO - COM E-MAIL SÓ AQUI NO FINAL -->
+        <section class="bio">
             <h2>Professor Ailton Carlos</h2>
             <p>
-                Leciono Filosofia e Informática na escola Felício Pereira. Também tô no mestrado pela Unimontes, 
-                sempre tentando pensar em jeitos de fazer filosofia conversar com o mundo digital.
+                Dou aula de Filosofia e Informática na escola Felício Pereira. Também tô no mestrado pela Unimontes, 
+                sempre tentando fazer filosofia conversar com o mundo digital.
             </p>
             <p>
-                Esses slides são os mesmos que uso em sala. Se tiver sugestão, crítica ou quiser trocar uma ideia, 
-                só chamar. Educação se faz junto.
+                Os slides são os mesmos que uso em sala. Se quiser trocar uma ideia, sugerir algo, só chamar.
             </p>
-            <div class="contato-rodape">
+            <div class="email">
                 📧 ailton.mota@educacao.mg.gov.br
             </div>
         </section>
+
     </main>
 
     <footer class="rodape">
-        <p>© 2026 - Material feito por professor, pra aluno nenhum botar defeito 🤝</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">Educação pública é coisa séria - e também pode ser feita com carinho</p>
+        <p>© 2026 - Feito por professor, pra aluno usar à vontade</p>
+        <p style="margin-top: 0.8rem;">Educação pública de qualidade é direito de todos</p>
     </footer>
-<script>
-    // DEBUG NO CONSOLE
-    console.log('🚀 Script carregado - Versão com reset');
 
-    // =============================================
-    // PARA TESTES: APAGA TUDO E RECOMEÇA
-    // Se quiser testar de novo, descomente a linha abaixo:
-    // sessionStorage.clear();
-    // =============================================
-
-    function verificarPopup() {
-        const status = sessionStorage.getItem('popupStatus');
-        console.log('Status atual:', status);
-        
-        // Se NÃO tiver registro OU tiver ignorado, mostra o popup
-        if (!status || status === 'ignorado') {
-            console.log('Mostrando popup (status:', status, ')');
-            document.getElementById('popupRegistro').style.display = 'flex';
-        } else {
-            console.log('Popup não mostrado - já registrado');
-            document.getElementById('popupRegistro').style.display = 'none';
-        }
-    }
-
-    // Verifica quando a página carrega
-    window.onload = verificarPopup;
-
-    function registrarAcesso() {
-        const nome = document.getElementById('nomeVisitante').value.trim();
-        const statusDiv = document.getElementById('registroStatus');
-        
-        console.log('Tentando registrar nome:', nome);
-        
-        if (nome === '') {
-            statusDiv.style.display = 'block';
-            statusDiv.style.background = '#e74c3c';
-            statusDiv.innerHTML = '❌ Digita teu nome rapidinho';
-            return;
-        }
-
-        statusDiv.style.display = 'block';
-        statusDiv.style.background = '#3498db';
-        statusDiv.innerHTML = '⏳ Enviando...';
-
-        // ENVIA PARA O GOOGLE APPS SCRIPT
-        fetch('https://script.google.com/macros/s/AKfycbz3SM0gmsT_QDLodTPQeRJGhi7QgxWkTO8yIMHxWwKa4U6--RA_kGtJIWbAI0oZ2K43/exec', {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: 'nome=' + encodeURIComponent(nome)
-        })
-        .then(() => {
-            console.log('✅ Envio concluído');
-            statusDiv.style.background = '#27ae60';
-            statusDiv.innerHTML = '✅ Valeu! Nome registrado.';
-            
-            // SALVA COMO REGISTRADO (agora não aparece mais)
-            sessionStorage.setItem('popupStatus', 'registrado');
-            
-            setTimeout(() => {
-                document.getElementById('popupRegistro').style.display = 'none';
-            }, 1500);
-        })
-        .catch((erro) => {
-            console.error('❌ Erro no envio:', erro);
-            statusDiv.style.background = '#27ae60';
-            statusDiv.innerHTML = '✅ Registrado!';
-            
-            sessionStorage.setItem('popupStatus', 'registrado');
-            
-            setTimeout(() => {
-                document.getElementById('popupRegistro').style.display = 'none';
-            }, 1500);
-        });
-    }
-
-    function fecharPopup() {
-        console.log('Popup fechado - vai reaparecer na próxima vez');
-        document.getElementById('popupRegistro').style.display = 'none';
-        // NÃO SALVA COMO IGNORADO - assim aparece de novo
-        // sessionStorage.setItem('popupStatus', 'ignorado');
-    }
-</script>
 </body>
 </html>
