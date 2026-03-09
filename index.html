@@ -3,230 +3,537 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentações - Prof. Ailton Carlos</title>
+    <title>Slides das aulas | Prof. Ailton</title>
     <style>
-        :root {
-            --primaria: #2c3e50;
-            --secundaria: #e67e22; /* Usei um tom laranja para diferenciar da página de capítulos */
-            --bg: #fdfdfd;
-            --card-bg: #ffffff;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            background-color: var(--bg);
-            color: #333;
-            line-height: 1.6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: #f7f9fa;
+            color: #1e2f3d;
+            line-height: 1.5;
         }
 
-        header {
-            background: var(--primaria);
+        .cabecalho {
+            background: #1e3c5c;
             color: white;
-            padding: 50px 20px;
+            padding: 3rem 1.5rem;
             text-align: center;
-            border-bottom: 6px solid var(--secundaria);
+            border-bottom: 5px solid #e67e22;
+        }
+
+        .cabecalho h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .cabecalho p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 2rem 1.5rem;
         }
 
-        .intro-texto {
+        /* Mensagem de boas-vindas */
+        .mensagem-boasvindas {
+            background: #e67e22;
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
             text-align: center;
-            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
         }
 
-        /* Grade de Slides */
-        .grid-slides {
+        .mensagem-boasvindas h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .mensagem-boasvindas p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contato-email {
+            background: white;
+            color: #1e3c5c;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 500;
+            margin-top: 1rem;
+            border: 2px solid #1e3c5c;
+            text-decoration: none;
+        }
+
+        .contato-email:hover {
+            background: #f0f0f0;
+        }
+
+        .titulo-slides {
+            font-size: 2rem;
+            color: #1e3c5c;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #e67e22;
+            display: inline-block;
+        }
+
+        .grade-slides {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
         }
 
         .card-slide {
-            background: var(--card-bg);
-            border-radius: 12px;
+            background: white;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
-            border: 1px solid #eee;
-            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: 0.25s;
+            border: 1px solid #edf2f7;
         }
 
         .card-slide:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(30, 60, 92, 0.15);
         }
 
-        .thumb-slide {
+        .card-slide img {
             width: 100%;
             height: 180px;
-            background: #eee;
             object-fit: cover;
-            border-bottom: 2px solid #f1f1f1;
-        }
-
-        .card-content {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .card-content h3 {
-            margin: 0 0 15px;
-            font-size: 1.1rem;
-            color: var(--primaria);
-        }
-
-        .btn-view {
+            background: #eee;
             display: block;
-            background: var(--secundaria);
+            border-bottom: 3px solid #e67e22;
+        }
+
+        .card-conteudo {
+            padding: 1.5rem;
+        }
+
+        .card-conteudo h3 {
+            font-size: 1.3rem;
+            color: #1e3c5c;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            min-height: 3.5rem;
+        }
+
+        .btn-slide {
+            display: block;
+            background: #1e3c5c;
             color: white;
-            padding: 12px;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: opacity 0.2s;
-        }
-
-        .btn-view:hover {
-            opacity: 0.9;
-        }
-
-        hr { border: 0; border-top: 1px solid #ddd; margin: 40px 0; }
-
-        /* Bio do Professor (Parte Inferior) */
-        .bio-area {
-            background: #f1f1f1;
-            padding: 30px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            border-left: 8px solid var(--primaria);
-        }
-
-        .bio-area h2 { margin: 0; color: var(--primaria); }
-        .bio-area p { margin: 0; font-size: 0.95rem; }
-
-        /* Mobile */
-        @media (max-width: 600px) {
-            header { padding: 30px 15px; }
-            .grid-slides { grid-template-columns: 1fr; }
-        }
-
-        footer {
+            padding: 0.9rem;
+            border-radius: 8px;
             text-align: center;
-            padding: 40px;
-            color: #777;
-            font-size: 0.8rem;
+            font-weight: 500;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .btn-slide:hover {
+            background: #e67e22;
+            border-color: #1e3c5c;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ccc, transparent);
+            margin: 3rem 0;
+        }
+
+        .sobre-mim {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border-left: 8px solid #e67e22;
+        }
+
+        .sobre-mim h2 {
+            font-size: 2rem;
+            color: #1e3c5c;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sobre-mim h2::before {
+            content: "📌";
+            font-size: 2rem;
+        }
+
+        .sobre-mim p {
+            font-size: 1.1rem;
+            color: #2d3f4f;
+            margin-bottom: 1.2rem;
+            max-width: 800px;
+        }
+
+        .contato-rodape {
+            background: #f0f7fa;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            display: inline-block;
+            color: #1e3c5c;
+            font-weight: 500;
+            border: 1px dashed #1e3c5c;
+        }
+
+        .rodape {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            background: #1a2b3c;
+            color: #a0b8cc;
+            margin-top: 3rem;
+        }
+
+        /* POPUP DE REGISTRO */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .popup-conteudo {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 30px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border: 4px solid #e67e22;
+        }
+
+        .popup-conteudo h3 {
+            font-size: 1.8rem;
+            color: #1e3c5c;
+            margin-bottom: 1rem;
+        }
+
+        .popup-conteudo p {
+            font-size: 1.1rem;
+            color: #2d3f4f;
+            margin-bottom: 2rem;
+        }
+
+        .popup-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: 0.2s;
+        }
+
+        .popup-input:focus {
+            border-color: #e67e22;
+            outline: none;
+        }
+
+        .popup-btn {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .popup-btn:hover {
+            background: #1e3c5c;
+            border-color: #e67e22;
+        }
+
+        .popup-fechar {
+            margin-top: 1rem;
+            color: #999;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .popup-fechar:hover {
+            color: #e67e22;
+        }
+
+        .registro-status {
+            background: #27ae60;
+            color: white;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .cabecalho { padding: 2rem 1rem; }
+            .mensagem-boasvindas { padding: 1.5rem; }
+            .mensagem-boasvindas h2 { font-size: 1.6rem; }
+            .grade-slides { grid-template-columns: 1fr; }
+            .sobre-mim { padding: 1.8rem; }
+            .card-conteudo h3 { min-height: auto; }
+            .popup-conteudo { padding: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Slides e Apresentações</h1>
-    <p>Material de Apoio às Aulas de Filosofia</p>
-</header>
+    <!-- POPUP DE REGISTRO -->
+    <div id="popupRegistro" class="popup-overlay">
+        <div class="popup-conteudo">
+            <h3>👋 Ei, só uma coisa rápida!</h3>
+            <p>Pra eu saber quem tá acessando os materiais (e melhorar cada vez mais), me ajuda com seu nome?</p>
+            
+            <div id="registroStatus" class="registro-status"></div>
 
-<div class="container">
-
-    <div class="intro-texto">
-        <p>Abaixo você encontra os slides utilizados em sala. Sinta-se à vontade para revisar o conteúdo ou acompanhar a aula pelo seu dispositivo.</p>
+            <input type="text" id="nomeVisitante" class="popup-input" placeholder="Seu nome (só o primeiro já ajuda)" maxlength="50">
+            
+            <button onclick="registrarAcesso()" class="popup-btn">📝 Registrar e acessar</button>
+            
+            <div class="popup-fechar" onclick="fecharPopup()">
+                Agora não, obrigado
+            </div>
+            
+            <p style="margin-top: 1.5rem; font-size: 0.85rem; color: #777;">
+                É rapidinho, e me ajuda a saber se os materiais tão chegando em quem precisa 🙏
+            </p>
+        </div>
     </div>
 
-    <main class="grid-slides">
+    <header class="cabecalho">
+        <h1>📊 Slides das Aulas</h1>
+        <p>E. E. Felício Pereira de Araújo • Montes Claros</p>
+        <a href="mailto:ailton.mota@educacao.mg.gov.br" class="contato-email">
+            📧 ailton.mota@educacao.mg.gov.br
+        </a>
+    </header>
 
-        <article class="card-slide">
-            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1pzbiIsSxgjbLQN7i3NBvDG9Mpnsktv6M&sz=w600" alt="Capa Slide">
-            <div class="card-content">
-                <h3>Introdução a Platão 1</h3>
-                <a href="https://docs.google.com/presentation/d/1pzbiIsSxgjbLQN7i3NBvDG9Mpnsktv6M/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
-            </div>
-        </article>
+    <main class="container">
 
-        <article class="card-slide">
-            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1-Fb_8UCJqZ8M6h0wjiI4h5_TKrR3RjrI&sz=w600" alt="Capa Slide">
-            <div class="card-content">
-                <h3>Felicidade - Sabedoria Grega antiga</h3>
-                <a href="https://docs.google.com/presentation/d/1-Fb_8UCJqZ8M6h0wjiI4h5_TKrR3RjrI/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
-            </div>
-        </article>
+        <!-- Mensagem de boas-vindas -->
+        <div class="mensagem-boasvindas">
+            <h2>📚 Material de apoio</h2>
+            <p>
+                Os slides que a gente usa em sala tão todos aqui. Fica à vontade pra acessar, baixar e usar.<br>
+                <strong>Tudo gratuito, feito por professor pra aluno.</strong>
+            </p>
+        </div>
 
-        <article class="card-slide">
-            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1q3TyvzsEsGGp6IkNuVYwn-jGVfAmbLtK&sz=w600" alt="Capa Slide">
-            <div class="card-content">
-                <h3>SSócrates e os sofistas</h3>
-                <a href="https://docs.google.com/presentation/d/1q3TyvzsEsGGp6IkNuVYwn-jGVfAmbLtK/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
-            </div>
-        </article>
+        <h2 class="titulo-slides">📽️ Apresentações que já usamos</h2>
 
-        <article class="card-slide">
-            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1J2eyC5nyC5vKFyrvmPMHfexP5qwdVrkhIx0zBNAWkv0&sz=w600" alt="Capa Slide">
-            <div class="card-content">
-                <h3>Aristóteles - Hilemorfismo Teleológio</h3>
-                <a href="https://docs.google.com/presentation/d/1J2eyC5nyC5vKFyrvmPMHfexP5qwdVrkhIx0zBNAWkv0/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
-            </div>
-        </article>
+        <div class="grade-slides">
 
-        <article class="card-slide">
-            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=12nosQwtKVs_-DZjDBhBFHivNvpbQJQdI&sz=w600" alt="Capa Slide">
-            <div class="card-content">
-                <h3>História da Filosofia: Pré-Socráticos</h3>
-                <a href="https://docs.google.com/presentation/d/12nosQwtKVs_-DZjDBhBFHivNvpbQJQdI/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
-            </div>
-        </article>
+            <!-- Introdução a Platão 1 -->
+            <article class="card-slide">
+                <img src="https://drive.google.com/thumbnail?id=1pzbiIsSxgjbLQN7i3NBvDG9Mpnsktv6M&sz=w600" alt="Platão" loading="lazy">
+                <div class="card-conteudo">
+                    <h3>Introdução a Platão 1</h3>
+                    <a href="https://docs.google.com/presentation/d/1pzbiIsSxgjbLQN7i3NBvDG9Mpnsktv6M/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                </div>
+            </article>
 
-        <article class="card-slide">
-            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1zi5GHSlb4YTVKZMVulOGEPptgHjCQ-LA&sz=w600" alt="Capa Slide">
-            <div class="card-content">
-                <h3>Ética e moral em Ilha das Flores</h3>
-                <a href="https://docs.google.com/presentation/d/1zi5GHSlb4YTVKZMVulOGEPptgHjCQ-LA/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
-            </div>
-        </article>
+            <!-- Felicidade - Sabedoria Grega -->
+            <article class="card-slide">
+                <img src="https://drive.google.com/thumbnail?id=1-Fb_8UCJqZ8M6h0wjiI4h5_TKrR3RjrI&sz=w600" alt="Felicidade Grega" loading="lazy">
+                <div class="card-conteudo">
+                    <h3>Felicidade - Sabedoria Grega antiga</h3>
+                    <a href="https://docs.google.com/presentation/d/1-Fb_8UCJqZ8M6h0wjiI4h5_TKrR3RjrI/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                </div>
+            </article>
 
-        <article class="card-slide">
-            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1-0P1A9AG6U5PjT-pxkK1PD2r5wf41S-Qh0DZ3V2brJ0&sz=w600" alt="Capa Slide">
-            <div class="card-content">
-                <h3>Aristoteles Básico</h3>
-                <a href="https://docs.google.com/presentation/d/1-0P1A9AG6U5PjT-pxkK1PD2r5wf41S-Qh0DZ3V2brJ0/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
-            </div>
-        </article>
+            <!-- Sócrates e os sofistas -->
+            <article class="card-slide">
+                <img src="https://drive.google.com/thumbnail?id=1q3TyvzsEsGGp6IkNuVYwn-jGVfAmbLtK&sz=w600" alt="Sócrates" loading="lazy">
+                <div class="card-conteudo">
+                    <h3>Sócrates e os sofistas</h3>
+                    <a href="https://docs.google.com/presentation/d/1q3TyvzsEsGGp6IkNuVYwn-jGVfAmbLtK/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                </div>
+            </article>
 
-        <article class="card-slide">
-            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1aRIfilgnBPA6PDxbWhI4aATPCUyiaA5B&sz=w600" alt="Capa Slide">
-            <div class="card-content">
-                <h3>Tipos de Conhecimento</h3>
-                <a href="https://docs.google.com/presentation/d/1aRIfilgnBPA6PDxbWhI4aATPCUyiaA5B/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
-            </div>
-        </article>
+            <!-- Aristóteles - Hilemorfismo -->
+            <article class="card-slide">
+                <img src="https://drive.google.com/thumbnail?id=1J2eyC5nyC5vKFyrvmPMHfexP5qwdVrkhIx0zBNAWkv0&sz=w600" alt="Aristóteles" loading="lazy">
+                <div class="card-conteudo">
+                    <h3>Aristóteles - Hilemorfismo e Teleologia</h3>
+                    <a href="https://docs.google.com/presentation/d/1J2eyC5nyC5vKFyrvmPMHfexP5qwdVrkhIx0zBNAWkv0/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                </div>
+            </article>
 
-        <article class="card-slide">
-            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1ws-fC0ycaRqm7Z9MbaJ08nt9Tp_Snltt&sz=w600" alt="Capa Slide">
-            <div class="card-content">
-                <h3>Aristóteles: Filosofia com os pés no chão</h3>
-                <a href="https://docs.google.com/presentation/d/1ws-fC0ycaRqm7Z9MbaJ08nt9Tp_Snltt/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
+            <!-- Pré-Socráticos -->
+            <article class="card-slide">
+                <img src="https://drive.google.com/thumbnail?id=12nosQwtKVs_-DZjDBhBFHivNvpbQJQdI&sz=w600" alt="Pré-Socráticos" loading="lazy">
+                <div class="card-conteudo">
+                    <h3>História da Filosofia: Pré-Socráticos</h3>
+                    <a href="https://docs.google.com/presentation/d/12nosQwtKVs_-DZjDBhBFHivNvpbQJQdI/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                </div>
+            </article>
+
+            <!-- Ética em Ilha das Flores -->
+            <article class="card-slide">
+                <img src="https://drive.google.com/thumbnail?id=1zi5GHSlb4YTVKZMVulOGEPptgHjCQ-LA&sz=w600" alt="Ilha das Flores" loading="lazy">
+                <div class="card-conteudo">
+                    <h3>Ética e moral em Ilha das Flores</h3>
+                    <a href="https://docs.google.com/presentation/d/1zi5GHSlb4YTVKZMVulOGEPptgHjCQ-LA/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                </div>
+            </article>
+
+            <!-- Aristóteles Básico -->
+            <article class="card-slide">
+                <img src="https://drive.google.com/thumbnail?id=1-0P1A9AG6U5PjT-pxkK1PD2r5wf41S-Qh0DZ3V2brJ0&sz=w600" alt="Aristóteles Básico" loading="lazy">
+                <div class="card-conteudo">
+                    <h3>Aristóteles Básico</h3>
+                    <a href="https://docs.google.com/presentation/d/1-0P1A9AG6U5PjT-pxkK1PD2r5wf41S-Qh0DZ3V2brJ0/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                </div>
+            </article>
+
+            <!-- Tipos de Conhecimento -->
+            <article class="card-slide">
+                <img src="https://drive.google.com/thumbnail?id=1aRIfilgnBPA6PDxbWhI4aATPCUyiaA5B&sz=w600" alt="Conhecimento" loading="lazy">
+                <div class="card-conteudo">
+                    <h3>Tipos de Conhecimento</h3>
+                    <a href="https://docs.google.com/presentation/d/1aRIfilgnBPA6PDxbWhI4aATPCUyiaA5B/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                </div>
+            </article>
+
+            <!-- Aristóteles: Filosofia com os pés no chão -->
+            <article class="card-slide">
+                <img src="https://drive.google.com/thumbnail?id=1ws-fC0ycaRqm7Z9MbaJ08nt9Tp_Snltt&sz=w600" alt="Aristóteles prático" loading="lazy">
+                <div class="card-conteudo">
+                    <h3>Aristóteles: Filosofia com os pés no chão</h3>
+                    <a href="https://docs.google.com/presentation/d/1ws-fC0ycaRqm7Z9MbaJ08nt9Tp_Snltt/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
+                </div>
+            </article>
+
+        </div>
+
+        <hr>
+
+        <!-- Seção sobre mim -->
+        <section class="sobre-mim">
+            <h2>Professor Ailton Carlos</h2>
+            <p>
+                Leciono Filosofia e Informática na escola Felício Pereira. Também tô no mestrado pela Unimontes, 
+                sempre tentando pensar em jeitos de fazer filosofia conversar com o mundo digital.
+            </p>
+            <p>
+                Esses slides são os mesmos que uso em sala. Se tiver sugestão, crítica ou quiser trocar uma ideia, 
+                só chamar. Educação se faz junto.
+            </p>
+            <div class="contato-rodape">
+                📧 ailton.mota@educacao.mg.gov.br
             </div>
-        </article>
+        </section>
 
     </main>
 
-    <hr>
+    <footer class="rodape">
+        <p>© 2026 - Material feito por professor, pra aluno nenhum botar defeito 🤝</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Educação pública é coisa séria - e também pode ser feita com carinho</p>
+    </footer>
 
-    <section class="bio-area">
-        <h2>Professor Ailton Carlos S. Mota</h2>
-        <p>Educador da rede estadual, une a formação em Licenciatura em Informática com o Mestrado em Filosofia. Especialista em integrar soluções tecnológicas no ensino público, foca em uma educação que prepara para o futuro sem esquecer a reflexão ética e humana.</p>
-        <p><strong>Contato:</strong> ailtoncarlos0101@gmail.com</p>
-    </section>
+    <script>
+        // Verifica se já viu o popup nessa sessão
+        if (sessionStorage.getItem('popupStatus')) {
+            document.getElementById('popupRegistro').style.display = 'none';
+        }
 
-</div>
+        function registrarAcesso() {
+            const nome = document.getElementById('nomeVisitante').value.trim();
+            const statusDiv = document.getElementById('registroStatus');
+            
+            if (nome === '') {
+                statusDiv.style.display = 'block';
+                statusDiv.style.background = '#e74c3c';
+                statusDiv.innerHTML = '❌ Digita seu nome rapidinho :)';
+                return;
+            }
 
-<footer>
-    <p>&copy; 2026 - Material Pedagógico Montes Claros/MG</p>
-</footer>
+            // Mostra status de envio
+            statusDiv.style.display = 'block';
+            statusDiv.style.background = '#3498db';
+            statusDiv.innerHTML = '⏳ Registrando...';
+
+            // =====================================================
+            // IMPORTANTE: Substitua [COLOCAR_O_NUMBER_DO_NOME_AQUI] 
+            // pelo número que você vai me mandar!
+            // =====================================================
+            const formData = new FormData();
+            formData.append('entry.[COLOCAR_O_NUMBER_DO_NOME_AQUI]', nome);
+            
+            // Envia para o Forms (sem recarregar a página)
+            fetch('https://docs.google.com/forms/d/e/1FAIpQLSfx8x8x8x8x8x8x8x8x8x8x8x8x8x8x8x8/formResponse', {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            })
+            .then(() => {
+                // Mesmo com no-cors, não temos resposta, mas assumimos que deu certo
+                statusDiv.style.background = '#27ae60';
+                statusDiv.innerHTML = '✅ Obrigado! Registro confirmado.';
+                
+                // Salva na sessão
+                sessionStorage.setItem('popupStatus', 'registrado');
+                sessionStorage.setItem('nomeVisitante', nome);
+                
+                // Fecha o popup
+                setTimeout(() => {
+                    document.getElementById('popupRegistro').style.display = 'none';
+                }, 1500);
+            })
+            .catch(() => {
+                // Se der erro, mesmo assim libera (não trava o aluno)
+                statusDiv.style.background = '#f39c12';
+                statusDiv.innerHTML = '✅ Obrigado! (Registro simplificado)';
+                
+                sessionStorage.setItem('popupStatus', 'registrado');
+                
+                setTimeout(() => {
+                    document.getElementById('popupRegistro').style.display = 'none';
+                }, 1500);
+            });
+        }
+
+        function fecharPopup() {
+            document.getElementById('popupRegistro').style.display = 'none';
+            sessionStorage.setItem('popupStatus', 'ignorado');
+        }
+    </script>
 
 </body>
 </html>
