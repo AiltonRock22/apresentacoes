@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentações - Prof. Ailton Carlos</title>
+    <style>
+        :root {
+            --primaria: #2c3e50;
+            --secundaria: #e67e22; /* Usei um tom laranja para diferenciar da página de capítulos */
+            --bg: #fdfdfd;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--primaria);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 6px solid var(--secundaria);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .intro-texto {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Grade de Slides */
+        .grid-slides {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .card-slide {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .card-slide:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+
+        .thumb-slide {
+            width: 100%;
+            height: 180px;
+            background: #eee;
+            object-fit: cover;
+            border-bottom: 2px solid #f1f1f1;
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-content h3 {
+            margin: 0 0 15px;
+            font-size: 1.1rem;
+            color: var(--primaria);
+        }
+
+        .btn-view {
+            display: block;
+            background: var(--secundaria);
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        .btn-view:hover {
+            opacity: 0.9;
+        }
+
+        hr { border: 0; border-top: 1px solid #ddd; margin: 40px 0; }
+
+        /* Bio do Professor (Parte Inferior) */
+        .bio-area {
+            background: #f1f1f1;
+            padding: 30px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border-left: 8px solid var(--primaria);
+        }
+
+        .bio-area h2 { margin: 0; color: var(--primaria); }
+        .bio-area p { margin: 0; font-size: 0.95rem; }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            header { padding: 30px 15px; }
+            .grid-slides { grid-template-columns: 1fr; }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Slides e Apresentações</h1>
+    <p>Material de Apoio às Aulas de Filosofia</p>
+</header>
+
+<div class="container">
+
+    <div class="intro-texto">
+        <p>Abaixo você encontra os slides utilizados em sala. Sinta-se à vontade para revisar o conteúdo ou acompanhar a aula pelo seu dispositivo.</p>
+    </div>
+
+    <main class="grid-slides">
+
+        <article class="card-slide">
+            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1pzbiIsSxgjbLQN7i3NBvDG9Mpnsktv6M&sz=w600" alt="Capa Slide">
+            <div class="card-content">
+                <h3>Tema da Aula: Introdução</h3>
+                <a href="https://docs.google.com/presentation/d/1pzbiIsSxgjbLQN7i3NBvDG9Mpnsktv6M/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
+            </div>
+        </article>
+
+        <article class="card-slide">
+            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1-Fb_8UCJqZ8M6h0wjiI4h5_TKrR3RjrI&sz=w600" alt="Capa Slide">
+            <div class="card-content">
+                <h3>Tópico Especial de Filosofia</h3>
+                <a href="https://docs.google.com/presentation/d/1-Fb_8UCJqZ8M6h0wjiI4h5_TKrR3RjrI/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
+            </div>
+        </article>
+
+        <article class="card-slide">
+            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1q3TyvzsEsGGp6IkNuVYwn-jGVfAmbLtK&sz=w600" alt="Capa Slide">
+            <div class="card-content">
+                <h3>Discussão e Teoria</h3>
+                <a href="https://docs.google.com/presentation/d/1q3TyvzsEsGGp6IkNuVYwn-jGVfAmbLtK/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
+            </div>
+        </article>
+
+        <article class="card-slide">
+            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1J2eyC5nyC5vKFyrvmPMHfexP5qwdVrkhIx0zBNAWkv0&sz=w600" alt="Capa Slide">
+            <div class="card-content">
+                <h3>Pensamento Crítico</h3>
+                <a href="https://docs.google.com/presentation/d/1J2eyC5nyC5vKFyrvmPMHfexP5qwdVrkhIx0zBNAWkv0/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
+            </div>
+        </article>
+
+        <article class="card-slide">
+            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=12nosQwtKVs_-DZjDBhBFHivNvpbQJQdI&sz=w600" alt="Capa Slide">
+            <div class="card-content">
+                <h3>História da Filosofia</h3>
+                <a href="https://docs.google.com/presentation/d/12nosQwtKVs_-DZjDBhBFHivNvpbQJQdI/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
+            </div>
+        </article>
+
+        <article class="card-slide">
+            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1zi5GHSlb4YTVKZMVulOGEPptgHjCQ-LA&sz=w600" alt="Capa Slide">
+            <div class="card-content">
+                <h3>Ética e Sociedade</h3>
+                <a href="https://docs.google.com/presentation/d/1zi5GHSlb4YTVKZMVulOGEPptgHjCQ-LA/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
+            </div>
+        </article>
+
+        <article class="card-slide">
+            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1-0P1A9AG6U5PjT-pxkK1PD2r5wf41S-Qh0DZ3V2brJ0&sz=w600" alt="Capa Slide">
+            <div class="card-content">
+                <h3>Lógica Aplicada</h3>
+                <a href="https://docs.google.com/presentation/d/1-0P1A9AG6U5PjT-pxkK1PD2r5wf41S-Qh0DZ3V2brJ0/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
+            </div>
+        </article>
+
+        <article class="card-slide">
+            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1aRIfilgnBPA6PDxbWhI4aATPCUyiaA5B&sz=w600" alt="Capa Slide">
+            <div class="card-content">
+                <h3>Filosofia Moderna</h3>
+                <a href="https://docs.google.com/presentation/d/1aRIfilgnBPA6PDxbWhI4aATPCUyiaA5B/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
+            </div>
+        </article>
+
+        <article class="card-slide">
+            <img class="thumb-slide" src="https://drive.google.com/thumbnail?id=1ws-fC0ycaRqm7Z9MbaJ08nt9Tp_Snltt&sz=w600" alt="Capa Slide">
+            <div class="card-content">
+                <h3>Cidadania e Política</h3>
+                <a href="https://docs.google.com/presentation/d/1ws-fC0ycaRqm7Z9MbaJ08nt9Tp_Snltt/edit?usp=sharing" target="_blank" class="btn-view">Ver Apresentação</a>
+            </div>
+        </article>
+
+    </main>
+
+    <hr>
+
+    <section class="bio-area">
+        <h2>Professor Ailton Carlos S. Mota</h2>
+        <p>Mestrando em Filosofia pela UNIMONTES e graduando em Licenciatura em Informática. Atua na Escola Estadual Felício Pereira de Araújo, promovendo a integração entre tecnologia e pensamento crítico.</p>
+        <p><strong>Contato:</strong> ailtoncarlos0101@gmail.com</p>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 - Material Pedagógico Montes Claros/MG</p>
+</footer>
+
+</body>
+</html>
