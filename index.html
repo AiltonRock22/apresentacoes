@@ -455,16 +455,32 @@
         <p>© 2026 - Material feito por professor, pra aluno nenhum botar defeito 🤝</p>
         <p style="margin-top: 1rem; font-size: 0.9rem;">Educação pública é coisa séria - e também pode ser feita com carinho</p>
     </footer>
-
 <script>
-    // DEBUG VISUAL - Mostra mensagens na tela
-    console.log('Script carregado');
-    
-    // Verifica se já viu o popup nesta sessão
-    if (sessionStorage.getItem('popupStatus')) {
-        document.getElementById('popupRegistro').style.display = 'none';
-        console.log('Popup já foi visto: ' + sessionStorage.getItem('popupStatus'));
+    // DEBUG NO CONSOLE
+    console.log('🚀 Script carregado - Versão com reset');
+
+    // =============================================
+    // PARA TESTES: APAGA TUDO E RECOMEÇA
+    // Se quiser testar de novo, descomente a linha abaixo:
+    // sessionStorage.clear();
+    // =============================================
+
+    function verificarPopup() {
+        const status = sessionStorage.getItem('popupStatus');
+        console.log('Status atual:', status);
+        
+        // Se NÃO tiver registro OU tiver ignorado, mostra o popup
+        if (!status || status === 'ignorado') {
+            console.log('Mostrando popup (status:', status, ')');
+            document.getElementById('popupRegistro').style.display = 'flex';
+        } else {
+            console.log('Popup não mostrado - já registrado');
+            document.getElementById('popupRegistro').style.display = 'none';
+        }
     }
+
+    // Verifica quando a página carrega
+    window.onload = verificarPopup;
 
     function registrarAcesso() {
         const nome = document.getElementById('nomeVisitante').value.trim();
@@ -476,14 +492,12 @@
             statusDiv.style.display = 'block';
             statusDiv.style.background = '#e74c3c';
             statusDiv.innerHTML = '❌ Digita teu nome rapidinho';
-            console.log('Erro: nome vazio');
             return;
         }
 
         statusDiv.style.display = 'block';
         statusDiv.style.background = '#3498db';
         statusDiv.innerHTML = '⏳ Enviando...';
-        console.log('Iniciando envio para:', 'https://script.google.com/macros/s/AKfycbz3SM0gmsT_QDLodTPQeRJGhi7QgxWkTO8yIMHxWwKa4U6--RA_kGtJIWbAI0oZ2K43/exec');
 
         // ENVIA PARA O GOOGLE APPS SCRIPT
         fetch('https://script.google.com/macros/s/AKfycbz3SM0gmsT_QDLodTPQeRJGhi7QgxWkTO8yIMHxWwKa4U6--RA_kGtJIWbAI0oZ2K43/exec', {
@@ -495,10 +509,11 @@
             body: 'nome=' + encodeURIComponent(nome)
         })
         .then(() => {
-            console.log('✅ Fetch completou (modo no-cors)');
+            console.log('✅ Envio concluído');
             statusDiv.style.background = '#27ae60';
             statusDiv.innerHTML = '✅ Valeu! Nome registrado.';
             
+            // SALVA COMO REGISTRADO (agora não aparece mais)
             sessionStorage.setItem('popupStatus', 'registrado');
             
             setTimeout(() => {
@@ -506,9 +521,9 @@
             }, 1500);
         })
         .catch((erro) => {
-            console.error('❌ Erro no fetch:', erro);
-            statusDiv.style.background = '#f39c12';
-            statusDiv.innerHTML = '✅ Registro local (offline)';
+            console.error('❌ Erro no envio:', erro);
+            statusDiv.style.background = '#27ae60';
+            statusDiv.innerHTML = '✅ Registrado!';
             
             sessionStorage.setItem('popupStatus', 'registrado');
             
@@ -519,9 +534,10 @@
     }
 
     function fecharPopup() {
-        console.log('Popup fechado manualmente');
+        console.log('Popup fechado - vai reaparecer na próxima vez');
         document.getElementById('popupRegistro').style.display = 'none';
-        sessionStorage.setItem('popupStatus', 'ignorado');
+        // NÃO SALVA COMO IGNORADO - assim aparece de novo
+        // sessionStorage.setItem('popupStatus', 'ignorado');
     }
 </script>
 </body>
