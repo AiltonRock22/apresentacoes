@@ -44,7 +44,6 @@
             padding: 2rem 1.5rem;
         }
 
-        /* Mensagem de boas-vindas */
         .mensagem-boasvindas {
             background: #e67e22;
             color: white;
@@ -208,7 +207,7 @@
             margin-top: 3rem;
         }
 
-        /* POPUP DE REGISTRO */
+        /* POPUP */
         .popup-overlay {
             position: fixed;
             top: 0;
@@ -317,22 +316,18 @@
     <!-- POPUP DE REGISTRO -->
     <div id="popupRegistro" class="popup-overlay">
         <div class="popup-conteudo">
-            <h3>👋 Ei, só uma coisa rápida!</h3>
-            <p>Pra eu saber quem tá acessando os materiais (e melhorar cada vez mais), me ajuda com seu nome?</p>
+            <h3>👋 Só uma coisa rápida...</h3>
+            <p>Me ajuda a saber quem tá acessando os slides? Só coloca seu nome:</p>
             
             <div id="registroStatus" class="registro-status"></div>
 
-            <input type="text" id="nomeVisitante" class="popup-input" placeholder="Seu nome (só o primeiro já ajuda)" maxlength="50">
+            <input type="text" id="nomeVisitante" class="popup-input" placeholder="Seu nome" maxlength="50">
             
             <button onclick="registrarAcesso()" class="popup-btn">📝 Registrar e acessar</button>
             
             <div class="popup-fechar" onclick="fecharPopup()">
-                Agora não, obrigado
+                Depois eu registro
             </div>
-            
-            <p style="margin-top: 1.5rem; font-size: 0.85rem; color: #777;">
-                É rapidinho, e me ajuda a saber se os materiais tão chegando em quem precisa 🙏
-            </p>
         </div>
     </div>
 
@@ -345,8 +340,6 @@
     </header>
 
     <main class="container">
-
-        <!-- Mensagem de boas-vindas -->
         <div class="mensagem-boasvindas">
             <h2>📚 Material de apoio</h2>
             <p>
@@ -355,11 +348,10 @@
             </p>
         </div>
 
-        <h2 class="titulo-slides">📽️ Apresentações que já usamos</h2>
+        <h2 class="titulo-slides">📽️ Apresentações</h2>
 
         <div class="grade-slides">
-
-            <!-- Introdução a Platão 1 -->
+            <!-- Slide 1 -->
             <article class="card-slide">
                 <img src="https://drive.google.com/thumbnail?id=1pzbiIsSxgjbLQN7i3NBvDG9Mpnsktv6M&sz=w600" alt="Platão" loading="lazy">
                 <div class="card-conteudo">
@@ -368,7 +360,7 @@
                 </div>
             </article>
 
-            <!-- Felicidade - Sabedoria Grega -->
+            <!-- Slide 2 -->
             <article class="card-slide">
                 <img src="https://drive.google.com/thumbnail?id=1-Fb_8UCJqZ8M6h0wjiI4h5_TKrR3RjrI&sz=w600" alt="Felicidade Grega" loading="lazy">
                 <div class="card-conteudo">
@@ -377,7 +369,7 @@
                 </div>
             </article>
 
-            <!-- Sócrates e os sofistas -->
+            <!-- Slide 3 -->
             <article class="card-slide">
                 <img src="https://drive.google.com/thumbnail?id=1q3TyvzsEsGGp6IkNuVYwn-jGVfAmbLtK&sz=w600" alt="Sócrates" loading="lazy">
                 <div class="card-conteudo">
@@ -386,7 +378,7 @@
                 </div>
             </article>
 
-            <!-- Aristóteles - Hilemorfismo -->
+            <!-- Slide 4 -->
             <article class="card-slide">
                 <img src="https://drive.google.com/thumbnail?id=1J2eyC5nyC5vKFyrvmPMHfexP5qwdVrkhIx0zBNAWkv0&sz=w600" alt="Aristóteles" loading="lazy">
                 <div class="card-conteudo">
@@ -395,7 +387,7 @@
                 </div>
             </article>
 
-            <!-- Pré-Socráticos -->
+            <!-- Slide 5 -->
             <article class="card-slide">
                 <img src="https://drive.google.com/thumbnail?id=12nosQwtKVs_-DZjDBhBFHivNvpbQJQdI&sz=w600" alt="Pré-Socráticos" loading="lazy">
                 <div class="card-conteudo">
@@ -404,7 +396,7 @@
                 </div>
             </article>
 
-            <!-- Ética em Ilha das Flores -->
+            <!-- Slide 6 -->
             <article class="card-slide">
                 <img src="https://drive.google.com/thumbnail?id=1zi5GHSlb4YTVKZMVulOGEPptgHjCQ-LA&sz=w600" alt="Ilha das Flores" loading="lazy">
                 <div class="card-conteudo">
@@ -413,7 +405,7 @@
                 </div>
             </article>
 
-            <!-- Aristóteles Básico -->
+            <!-- Slide 7 -->
             <article class="card-slide">
                 <img src="https://drive.google.com/thumbnail?id=1-0P1A9AG6U5PjT-pxkK1PD2r5wf41S-Qh0DZ3V2brJ0&sz=w600" alt="Aristóteles Básico" loading="lazy">
                 <div class="card-conteudo">
@@ -422,7 +414,7 @@
                 </div>
             </article>
 
-            <!-- Tipos de Conhecimento -->
+            <!-- Slide 8 -->
             <article class="card-slide">
                 <img src="https://drive.google.com/thumbnail?id=1aRIfilgnBPA6PDxbWhI4aATPCUyiaA5B&sz=w600" alt="Conhecimento" loading="lazy">
                 <div class="card-conteudo">
@@ -431,7 +423,7 @@
                 </div>
             </article>
 
-            <!-- Aristóteles: Filosofia com os pés no chão -->
+            <!-- Slide 9 -->
             <article class="card-slide">
                 <img src="https://drive.google.com/thumbnail?id=1ws-fC0ycaRqm7Z9MbaJ08nt9Tp_Snltt&sz=w600" alt="Aristóteles prático" loading="lazy">
                 <div class="card-conteudo">
@@ -439,12 +431,10 @@
                     <a href="https://docs.google.com/presentation/d/1ws-fC0ycaRqm7Z9MbaJ08nt9Tp_Snltt/edit?usp=sharing" target="_blank" class="btn-slide">▶️ Ver slides</a>
                 </div>
             </article>
-
         </div>
 
         <hr>
 
-        <!-- Seção sobre mim -->
         <section class="sobre-mim">
             <h2>Professor Ailton Carlos</h2>
             <p>
@@ -459,7 +449,6 @@
                 📧 ailton.mota@educacao.mg.gov.br
             </div>
         </section>
-
     </main>
 
     <footer class="rodape">
@@ -468,66 +457,60 @@
     </footer>
 
     <script>
-        // Verifica se já viu o popup nessa sessão
+        // Verifica se já viu o popup nesta sessão
         if (sessionStorage.getItem('popupStatus')) {
             document.getElementById('popupRegistro').style.display = 'none';
         }
 
-function registrarAcesso() {
-    const nome = document.getElementById('nomeVisitante').value.trim();
-    const statusDiv = document.getElementById('registroStatus');
-    
-    if (nome === '') {
-        statusDiv.style.display = 'block';
-        statusDiv.style.background = '#e74c3c';
-        statusDiv.innerHTML = '❌ Digita teu nome rapidinho';
-        return;
-    }
+        function registrarAcesso() {
+            const nome = document.getElementById('nomeVisitante').value.trim();
+            const statusDiv = document.getElementById('registroStatus');
+            
+            if (nome === '') {
+                statusDiv.style.display = 'block';
+                statusDiv.style.background = '#e74c3c';
+                statusDiv.innerHTML = '❌ Digita teu nome rapidinho';
+                return;
+            }
 
-    statusDiv.style.display = 'block';
-    statusDiv.style.background = '#3498db';
-    statusDiv.innerHTML = '⏳ Registrando...';
+            statusDiv.style.display = 'block';
+            statusDiv.style.background = '#3498db';
+            statusDiv.innerHTML = '⏳ Registrando...';
 
-    // CRIA UM IFRAME OCULTO PARA ENVIAR O FORMULÁRIO
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    iframe.name = 'iframeRegistro';
-    document.body.appendChild(iframe);
+            // ENVIA PARA O GOOGLE APPS SCRIPT (SUA URL)
+            fetch('https://script.google.com/macros/s/AKfycbz3SM0gmsT_QDLodTPQeRJGhi7QgxWkTO8yIMHxWwKa4U6--RA_kGtJIWbAI0oZ2K43/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'nome=' + encodeURIComponent(nome)
+            })
+            .then(() => {
+                statusDiv.style.background = '#27ae60';
+                statusDiv.innerHTML = '✅ Valeu! Pode acessar os slides.';
+                
+                sessionStorage.setItem('popupStatus', 'registrado');
+                
+                setTimeout(() => {
+                    document.getElementById('popupRegistro').style.display = 'none';
+                }, 1500);
+            })
+            .catch((erro) => {
+                console.error('Erro:', erro);
+                // Mesmo com erro, liberamos o acesso
+                statusDiv.style.background = '#27ae60';
+                statusDiv.innerHTML = '✅ Valeu! Pode acessar.';
+                
+                sessionStorage.setItem('popupStatus', 'registrado');
+                
+                setTimeout(() => {
+                    document.getElementById('popupRegistro').style.display = 'none';
+                }, 1500);
+            });
+        }
 
-    // CRIA UM FORMULÁRIO QUE ENVIA PARA O IFRAME
-    const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSfx8x8x8x8x8x8x8x8x8x8x8x8x8x8x8x8/formResponse';
-    form.target = 'iframeRegistro';
-    form.style.display = 'none';
-
-    // ADICIONA O CAMPO DO NOME
-    const input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = 'entry.2051425765';
-    input.value = nome;
-    form.appendChild(input);
-
-    document.body.appendChild(form);
-    
-    // ENVIA O FORMULÁRIO
-    form.submit();
-
-    // LIMPA TUDO DEPOIS DE ENVIAR
-    setTimeout(() => {
-        document.body.removeChild(form);
-        document.body.removeChild(iframe);
-        
-        statusDiv.style.background = '#27ae60';
-        statusDiv.innerHTML = '✅ Valeu! Pode acessar os slides.';
-        
-        sessionStorage.setItem('popupStatus', 'registrado');
-        
-        setTimeout(() => {
-            document.getElementById('popupRegistro').style.display = 'none';
-        }, 1500);
-    }, 1000);
-}        function fecharPopup() {
+        function fecharPopup() {
             document.getElementById('popupRegistro').style.display = 'none';
             sessionStorage.setItem('popupStatus', 'ignorado');
         }
